@@ -20,6 +20,7 @@ classdef ESEapp < matlab.apps.AppBase
     end
     methods (Access = private)
         function CalcEngine(app)
+            
             %% Define initial params
             y = round(app.Slider.Value);
             x = y + round(app.Slider_2.Value);
@@ -27,14 +28,17 @@ classdef ESEapp < matlab.apps.AppBase
             app.LabelY.Text = sprintf('Y = %d', y);
             N = 5;   % Matrix dimension
             T0 = pi; % Initial PST
+            
             %% Jacobi Matrix Setup
             J = Jacobi_5x5_Matrix(x,y,0);
             disp(J)
+            
             %% Inner Product <e^(-iJt)e0, e0> setup
             e0 = zeros(N,1);
             e0(1) = 1; % First element of standard basis
             e4 = zeros(N,1);
             e4(5)=1;
+            
             % ESE/PST Time intervals
             t = linspace(0,10,2000);
             func = zeros(size(t));
@@ -44,10 +48,11 @@ classdef ESEapp < matlab.apps.AppBase
                 func(k) = e0'*E*e0;
                 func2(k) = e4'*E*e0;
             end
+            
             %% Plotting
             plot(app.MainAxes,t,abs(func), t, abs(func2), 'LineWidth', 0.5);
             legend(app.MainAxes,{'ESE', 'PST'})
-            % plot(t,abs(func2), 'LineStyle', '--')
+            
             xlabel(app.MainAxes,'t')
             ylabel(app.MainAxes,'Amplitude')
             title(app.MainAxes, 'Time Evolution of Quantum States')
@@ -92,6 +97,7 @@ classdef ESEapp < matlab.apps.AppBase
             
             cla(app.MainAxes)
             hold(app.MainAxes, 'on')
+            
             % Displays points of ESE only when x is multiple of y
             if mod(x,y) == 0
                 plot(app.MainAxes, t, ESE, 'LineWidth', 0.5, ...
