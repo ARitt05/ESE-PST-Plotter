@@ -10,3 +10,8 @@ User choses eigenvalues X and Y such that:
 - Y is odd
 
 Selected eigenvalues are used to plot the time evolution of quantum states.
+
+## How to install
+
+Download 'ESEAppInstaller.exe' and follow prompts. 
+Once installed, open the file and plot different cases to observe ESE and PST!
