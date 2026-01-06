@@ -18,7 +18,8 @@ Download 'ESEAppInstaller.exe' and follow prompts.
 
 Once installed, open the file and plot different cases to observe ESE and PST!
 
-JMM 2026 - Poster #84
+## JMM 2026 
+Poster #84
 Jasmin Enriquez - jenriquez@hartford.edu
 Andrew Rittenberg - rittenber@hartford.edu
 Thomas Yonkers - tyonkers@hartford.edu
